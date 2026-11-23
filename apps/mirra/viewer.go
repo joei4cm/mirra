@@ -209,8 +209,8 @@ func (s *studio) viewer(cx *core.Scope) core.Node {
 	return core.Modal{Animation: core.ModalFade, TestID: "full-screen", Label: t.ViewFullScreen(),
 		OnRequestClose: func(string) { closeViewer() },
 		StatusBar:      core.StatusBarSetting{Hidden: core.ToggleOn},
-		Style: core.Style{FlexGrow: 1, Background: core.RGB(0x000000), PaddingEnv: core.EnvEdges{Top: core.EnvSafeArea, Bottom: core.EnvSafeArea}},
-		Children: children,
+		Style:          core.Style{FlexGrow: 1, Background: core.RGB(0x000000), PaddingEnv: core.EnvEdges{Top: core.EnvSafeArea, Bottom: core.EnvSafeArea}},
+		Children:       children,
 	}
 }
 

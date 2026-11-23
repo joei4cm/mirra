@@ -118,7 +118,7 @@ type studio struct {
 	shot   *core.Signal[*shot]
 	// fullScreen shows the picture on show over the whole window.
 	fullScreen *core.Signal[bool]
-	zoom   *core.Signal[int]
+	zoom       *core.Signal[int]
 
 	// provider is the chosen AI service's ID, and settings what the user set for each one.
 	provider               *core.Signal[string]
