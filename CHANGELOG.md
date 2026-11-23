@@ -3,6 +3,7 @@
 ## Unreleased
 
 - The model picker of a server you run yourself, such as stable-diffusion.cpp or an OpenAI-compatible gateway, offers every model the server lists, where it offered only those whose names said they made images; a local model's name often says nothing of the kind.
+- Magpie, the gateway that serves the image models of the accounts you are signed into from one address on your own machine, is preset beside stable-diffusion.cpp, with the key optional.
 
 ## 0.20.0 - 2026-11-20
 

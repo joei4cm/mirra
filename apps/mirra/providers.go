@@ -104,6 +104,8 @@ var providers = []provider{
 	{ID: "azure", Name: "Azure OpenAI", Logo: "azure", Protocol: protoAzure, URLHint: "https://<resource>.openai.azure.com/openai/v1", Model: defaultModel, Size: defaultSize, Deployment: true,
 		KeyURL: "https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI"},
 	{ID: "sdcpp", Name: "stable-diffusion.cpp", Protocol: protoOpenAI, BaseURL: "http://127.0.0.1:1234/v1", Model: "sd-cpp-local", Size: defaultSize, KeyOptional: true, OwnServer: true},
+	// Magpie serves the image models of the accounts the user is signed into, a ChatGPT plan's GPT Image among them, from one local address, taking any key.
+	{ID: "magpie", Name: "Magpie", Protocol: protoOpenAI, BaseURL: "http://127.0.0.1:3425/v1", Model: defaultModel, Size: defaultSize, KeyOptional: true, OwnServer: true},
 	{ID: providerCustom, Name: "OpenAI-compatible", Local: func(t locales.Messages) string { return t.ProviderCustom() }, Protocol: protoOpenAI, URLHint: defaultLocalURL,
 		Model: defaultModel, Size: defaultSize, KeyOptional: true},
 }
