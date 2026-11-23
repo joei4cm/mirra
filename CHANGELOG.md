@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- The model picker of a server you run yourself, such as stable-diffusion.cpp or an OpenAI-compatible gateway, offers every model the server lists, where it offered only those whose names said they made images; a local model's name often says nothing of the kind.
+
 ## 0.20.0 - 2026-11-20
 
 - 130 backgrounds instead of 14, most of them outdoors: beaches, lakes, mountains, forests, fields, deserts, streets, old towns and harbors, besides a few rooms.
