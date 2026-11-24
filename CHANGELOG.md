@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Magpie, the gateway that serves the image models of the accounts you are signed into from one address on your own machine, is preset beside stable-diffusion.cpp, with the key optional.
+- The privacy note under the key says where the requests really go: a gateway passes them on to the service behind it, whose plan pays for them, where it said a server of your own answers them for free.
 
 ## 0.20.0 - 2026-11-20
 
