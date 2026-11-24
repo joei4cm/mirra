@@ -129,6 +129,7 @@ The connection test asks the provider for its models; Volcengine Ark and Model S
 ## Privacy
 
 - The app sends the service you set up only the images you chose (gallery images, or a photo of your clothes) and the prompt, and only when you press Generate or Test connection.
+- A gateway you run, such as Magpie, passes the request on to the service behind it, whose plan pays for it.
 - Photos of your clothes stay in the app's data directory.
 - The galleries see the requests for the thumbnails and images you open, as a browser visit would.
 - A new picture is kept aside until you save it; saved ones stay in the app's data directory until you delete them.
