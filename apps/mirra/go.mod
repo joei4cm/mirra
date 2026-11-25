@@ -3,7 +3,7 @@ module github.com/yldm-ai/mirra/apps/mirra
 go 1.27.4
 
 require (
-	github.com/nsgo-dev/nsgo v0.3.0
+	github.com/nsgo-dev/nsgo v0.3.3
 	github.com/yldm-tech/ai-logo/nsgo v1.22.0
 	golang.org/x/image v0.48.0
 )
