@@ -220,6 +220,37 @@ func TestExportInABrowserSendsThePicture(t *testing.T) {
 	}
 }
 
+// TestSavingTellsYouWhenItCannot makes the lookbook's folder read-only, so the picture cannot be saved: the app says so and the picture stays offered for saving, which then works.
+func TestSavingTellsYouWhenItCannot(t *testing.T) {
+	headlessOnly(t)
+	app, dir := start(t, &fakeAPI{}, "k")
+	makeLook(t, app)
+	folder := filepath.Join(dir, "works")
+	if err := os.Mkdir(folder, 0o700); err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() { _ = os.Chmod(folder, 0o700) })
+	if err := os.Chmod(folder, 0o500); err != nil {
+		t.Fatal(err)
+	}
+	app.Press("id:save-to-works")
+	app.WaitFor("text:/Couldn't save/", wait)
+	if ws := works(t, dir); len(ws) != 0 {
+		t.Errorf("the lookbook took the picture anyway: %+v", ws)
+	}
+	app.Find("id:save-to-works")
+
+	// With the lookbook writable again, the same picture saves.
+	if err := os.Chmod(folder, 0o700); err != nil {
+		t.Fatal(err)
+	}
+	app.Press("id:save-to-works")
+	app.WaitFor("id:saved", wait)
+	if ws := works(t, dir); len(ws) != 1 {
+		t.Errorf("the lookbook holds %+v after a retry, want the picture", ws)
+	}
+}
+
 func TestCancelGenerating(t *testing.T) {
 	api := &fakeAPI{hang: true}
 	app, _ := start(t, api, "k")
