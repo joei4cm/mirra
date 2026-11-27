@@ -6,6 +6,8 @@ import (
 	"slices"
 	"strings"
 	"testing"
+
+	"github.com/yldm-ai/mirra/apps/mirra/locales"
 )
 
 func ids(items []Item) []string {
@@ -126,5 +128,79 @@ func TestPoseAngles(t *testing.T) {
 	}
 	if poseSet("全身1人・標準系", "") != "" {
 		t.Error("a pose with no number is in a set")
+	}
+}
+
+// TestGroupLabelKnowsEveryChip maps every group string the galleries use to its own chip in every catalog, keeps a family's chips apart, and passes an unknown group through, so no chip falls back to the gallery's own word or lands on its neighbor's.
+func TestGroupLabelKnowsEveryChip(t *testing.T) {
+	families := []struct {
+		name  string
+		chips []struct {
+			group string
+			chip  func(locales.Messages) string
+		}
+	}{
+		{"angle", []struct {
+			group string
+			chip  func(locales.Messages) string
+		}{
+			{"正面", locales.Messages.AngleFront},
+			{"斜め", locales.Messages.AngleThreeQuarter},
+			{"横", locales.Messages.AngleSide},
+			{"上から", locales.Messages.AngleHigh},
+			{"下から", locales.Messages.AngleLow},
+		}},
+		{"hair", []struct {
+			group string
+			chip  func(locales.Messages) string
+		}{
+			{"ショート", locales.Messages.HairShort},
+			{"ミディアム", locales.Messages.HairMedium},
+			{"セミロング", locales.Messages.HairSemiLong},
+			{"ロング", locales.Messages.HairLong},
+		}},
+		{"season", []struct {
+			group string
+			chip  func(locales.Messages) string
+		}{
+			{"春", locales.Messages.GroupSpring},
+			{"夏", locales.Messages.GroupSummer},
+			{"秋", locales.Messages.GroupAutumn},
+			{"冬", locales.Messages.GroupWinter},
+		}},
+		{"category", []struct {
+			group string
+			chip  func(locales.Messages) string
+		}{
+			{"パーティ", locales.Messages.GroupParty},
+			{"水着", locales.Messages.GroupSwimwear},
+			{"ランジェリー", locales.Messages.GroupLingerie},
+			{"セクシー", locales.Messages.GroupSexy},
+			{groupIndoor, locales.Messages.GroupIndoor},
+			{groupCity, locales.Messages.GroupCity},
+			{groupNature, locales.Messages.GroupNature},
+			{uploadGroup, locales.Messages.MyUploads},
+		}},
+	}
+	for _, lang := range locales.Catalog.Languages() {
+		t.Run(lang, func(t *testing.T) {
+			m := locales.In(lang)
+			for _, fam := range families {
+				seen := map[string]string{}
+				for _, c := range fam.chips {
+					want := c.chip(m)
+					if got := groupLabel(m, c.group); got != want {
+						t.Errorf("groupLabel(%q) = %q, want the %s chip %q", c.group, got, lang, want)
+					}
+					if other, ok := seen[want]; ok && fam.name != "category" {
+						t.Errorf("%s says %q for both %s and %s", lang, want, other, c.group)
+					}
+					seen[want] = c.group
+				}
+			}
+		})
+	}
+	if got := groupLabel(locales.In("en"), "夜"); got != "夜" {
+		t.Errorf("groupLabel of a group no chip names = %q, want it passed through", got)
 	}
 }
