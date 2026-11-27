@@ -159,6 +159,9 @@ func TestOpeningAWorkRestoresItsLook(t *testing.T) {
 	if ws := works(t, dir); len(ws) != 1 || ws[0].Face != nil || ws[0].Costume != nil {
 		t.Fatalf("works = %+v, want one made without a face or an outfit", ws)
 	}
+	// The saved toast's zone covers the top buttons for its five seconds; the test clock runs it out.
+	app.Advance(6 * time.Second)
+	app.WaitForGone("id:toast-1", wait)
 	// The user picks an outfit for the next picture.
 	app.Press("id:close-shot")
 	app.Press("id:row-costume")
@@ -183,6 +186,9 @@ func TestStarringASavedWorkRewritesItsSidecar(t *testing.T) {
 	makeLook(t, app)
 	app.Press("id:save-to-works")
 	app.WaitFor("id:saved", wait)
+	// The saved toast's zone covers the top buttons for its five seconds; the test clock runs it out.
+	app.Advance(6 * time.Second)
+	app.WaitForGone("id:toast-1", wait)
 	app.Press("id:favorite")
 	app.WaitUntil(wait, func() bool {
 		ws, err := listWorks(filePictures{}, filepath.Join(dir, "works"))
