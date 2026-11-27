@@ -441,6 +441,30 @@ func TestUploadedClothesAreWorn(t *testing.T) {
 	}
 }
 
+// TestUploadRefusesWhatIsNotAPicture answers the picker with a file whose bytes are not a picture: the app says so and the wardrobe keeps as it was, and a real picture after it still lands.
+func TestUploadRefusesWhatIsNotAPicture(t *testing.T) {
+	if nsgotest.Target() != "" {
+		t.Skip("a target never hands the test's PickImages answer to the app: https://github.com/nsgo-dev/nsgo/issues/866")
+	}
+	app, _ := start(t, &fakeAPI{}, "k")
+	app.Press("text:Wardrobe")
+	app.PickImages = func(core.PickRequest) []core.PickedFile {
+		return []core.PickedFile{{Name: "notes.txt", MIME: "text/plain", Data: []byte("not a picture")}}
+	}
+	app.Press("id:upload")
+	app.WaitFor("text:/not a picture/", wait)
+	if n := len(app.Query("label:My clothes 01")); n != 0 {
+		t.Errorf("the wardrobe took the file anyway: %d uploads", n)
+	}
+
+	// A real picture after it lands as the wardrobe's first upload.
+	app.PickImages = func(core.PickRequest) []core.PickedFile {
+		return []core.PickedFile{{Name: "shirt.png", MIME: "image/png", Data: tinyPNG(t)}}
+	}
+	app.Press("id:upload")
+	app.WaitFor("label:My clothes 01", wait)
+}
+
 func TestGalleryErrorOffersRetry(t *testing.T) {
 	app := nsgotest.Start(t, App{Sites: Sites{Pose: "http://127.0.0.1:1", Costume: "http://127.0.0.1:1", Face: "http://127.0.0.1:1"}, DataDir: t.TempDir()}.Root)
 	app.Press("id:row-costume")

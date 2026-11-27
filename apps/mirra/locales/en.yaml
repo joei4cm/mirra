@@ -137,6 +137,7 @@ noFavoritesTitle: No favorites yet
 noFavoritesBody: Tap ♡ on an outfit in the gallery to keep it here.
 noUploadsTitle: No clothes added yet
 noUploadsBody: Add a photo of clothes laid flat or on a hanger.
+notAnImage: That file is not a picture.
 swapOutfit: Same face, another outfit
 swapTo:
   message: "Wear {name}"

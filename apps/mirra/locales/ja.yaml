@@ -97,6 +97,7 @@ noFavoritesTitle: お気に入りはまだありません
 noFavoritesBody: ギャラリーの服装で ♡ をタップすると、ここに保存されます。
 noUploadsTitle: 追加した服はまだありません
 noUploadsBody: 平置きかハンガーに掛けた服の写真を追加してください。
+notAnImage: そのファイルは画像ではありません。
 swapOutfit: 同じ顔で、別の服装に
 swapTo: 「{name}」に着替える
 usedFace: 使用した顔

@@ -97,6 +97,7 @@ noFavoritesTitle: 還沒有收藏
 noFavoritesBody: 到「服裝庫」點 ♡ 收藏喜歡的搭配
 noUploadsTitle: 還沒上傳過衣服
 noUploadsBody: 點「上傳衣服」，拍一張平放或掛著的衣服照片即可
+notAnImage: 這個檔案不是圖片。
 swapOutfit: 同一張臉，一鍵換搭配
 swapTo: 換成「{name}」
 usedFace: 使用的臉孔

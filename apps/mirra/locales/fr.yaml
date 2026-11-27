@@ -97,6 +97,7 @@ noFavoritesTitle: Aucun favori
 noFavoritesBody: Touchez ♡ sur une tenue de la galerie pour la retrouver ici.
 noUploadsTitle: Aucun vêtement ajouté
 noUploadsBody: Ajoutez une photo de vêtements posés à plat ou sur un cintre.
+notAnImage: Ce fichier n’est pas une image.
 swapOutfit: Même visage, autre tenue
 swapTo: "Porter {name}"
 usedFace: Visage utilisé

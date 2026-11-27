@@ -97,6 +97,7 @@ noFavoritesTitle: Nenhum favorito ainda
 noFavoritesBody: Toque em ♡ numa roupa da galeria para guardá-la aqui.
 noUploadsTitle: Nenhuma roupa adicionada ainda
 noUploadsBody: Adicione uma foto de roupas estendidas ou num cabide.
+notAnImage: Esse arquivo não é uma imagem.
 swapOutfit: Mesmo rosto, outra roupa
 swapTo: Vestir {name}
 usedFace: Rosto usado

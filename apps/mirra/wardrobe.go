@@ -90,6 +90,11 @@ func (s *studio) uploadClothes() {
 		if len(files) != 1 {
 			return
 		}
+		// The pickers only offer pictures, but a file whose bytes do not decode arrives as it is on the desktops; storing it would put a tile in the wardrobe that can never render, and uploads have no way out.
+		if !strings.HasPrefix(files[0].MIME, "image/") {
+			s.toaster.Show(ui.ToastContent{Type: ui.ToastError, Title: t.NotAnImage()})
+			return
+		}
 		data := files[0].Data
 		go func() {
 			_, err := saveUpload(st, dir, data, now)

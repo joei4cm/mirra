@@ -97,6 +97,7 @@ noFavoritesTitle: 아직 즐겨찾기가 없어요
 noFavoritesBody: 갤러리에서 의상의 ♡를 탭하면 여기에 모여요.
 noUploadsTitle: 아직 추가한 옷이 없어요
 noUploadsBody: 옷을 바닥에 펼치거나 옷걸이에 걸어 찍은 사진을 추가하세요.
+notAnImage: 이 파일은 이미지가 아닙니다.
 swapOutfit: 같은 얼굴, 다른 의상
 swapTo: "{name} 입기"
 usedFace: 사용한 얼굴

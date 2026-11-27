@@ -1900,6 +1900,7 @@ const (
 	textNoFavoritesBody
 	textNoUploadsTitle
 	textNoUploadsBody
+	textNotAnImage
 	textSwapOutfit
 	textUsedFace
 	textUsedPose
@@ -2098,6 +2099,7 @@ var keyOfText = [numTexts]string{
 	"noFavoritesBody",
 	"noUploadsTitle",
 	"noUploadsBody",
+	"notAnImage",
 	"swapOutfit",
 	"usedFace",
 	"usedPose",
@@ -2294,6 +2296,7 @@ var textsEn = i18n.NewTexts(""+
 	"Tap ♡ on an outfit in the gallery to keep it here."+
 	"No clothes added yet"+
 	"Add a photo of clothes laid flat or on a hanger."+
+	"That file is not a picture."+
 	"Same face, another outfit"+
 	"Face used"+
 	"Pose used"+
@@ -2487,6 +2490,7 @@ var textsEn = i18n.NewTexts(""+
 		52,
 		20,
 		48,
+		27,
 		25,
 		9,
 		9,
@@ -2683,6 +2687,7 @@ var textsDe = i18n.NewTexts(""+
 	"Tippe in der Galerie bei einem Outfit auf ♡, um es hier zu behalten."+
 	"Noch keine Kleidung hinzugefügt"+
 	"Füge ein Foto von Kleidung hinzu, flach ausgelegt oder auf einem Bügel."+
+	"Diese Datei ist kein Bild."+
 	"Gleiches Gesicht, anderes Outfit"+
 	"Verwendetes Gesicht"+
 	"Verwendete Pose"+
@@ -2876,6 +2881,7 @@ var textsDe = i18n.NewTexts(""+
 		70,
 		32,
 		73,
+		26,
 		32,
 		19,
 		15,
@@ -3072,6 +3078,7 @@ var textsEs = i18n.NewTexts(""+
 	"Toca ♡ en un atuendo de la galería para guardarlo aquí."+
 	"Aún no has añadido ropa"+
 	"Añade una foto de ropa extendida o en una percha."+
+	"Ese archivo no es una imagen."+
 	"El mismo rostro, otro atuendo"+
 	"Rostro usado"+
 	"Pose usada"+
@@ -3265,6 +3272,7 @@ var textsEs = i18n.NewTexts(""+
 		59,
 		25,
 		50,
+		29,
 		29,
 		12,
 		10,
@@ -3461,6 +3469,7 @@ var textsFr = i18n.NewTexts(""+
 	"Touchez ♡ sur une tenue de la galerie pour la retrouver ici."+
 	"Aucun vêtement ajouté"+
 	"Ajoutez une photo de vêtements posés à plat ou sur un cintre."+
+	"Ce fichier n’est pas une image."+
 	"Même visage, autre tenue"+
 	"Visage utilisé"+
 	"Pose utilisée"+
@@ -3654,6 +3663,7 @@ var textsFr = i18n.NewTexts(""+
 		62,
 		23,
 		64,
+		33,
 		25,
 		15,
 		14,
@@ -3850,6 +3860,7 @@ var textsIt = i18n.NewTexts(""+
 	"Tocca ♡ su un outfit della galleria per tenerlo qui."+
 	"Ancora nessun vestito aggiunto"+
 	"Aggiungi una foto di vestiti stesi in piano o su una gruccia."+
+	"Quel file non è un’immagine."+
 	"Stesso viso, altro outfit"+
 	"Viso usato"+
 	"Posa usata"+
@@ -4043,6 +4054,7 @@ var textsIt = i18n.NewTexts(""+
 		54,
 		30,
 		61,
+		31,
 		25,
 		10,
 		10,
@@ -4239,6 +4251,7 @@ var textsJa = i18n.NewTexts(""+
 	"ギャラリーの服装で ♡ をタップすると、ここに保存されます。"+
 	"追加した服はまだありません"+
 	"平置きかハンガーに掛けた服の写真を追加してください。"+
+	"そのファイルは画像ではありません。"+
 	"同じ顔で、別の服装に"+
 	"使用した顔"+
 	"使用したポーズ"+
@@ -4432,6 +4445,7 @@ var textsJa = i18n.NewTexts(""+
 		86,
 		39,
 		78,
+		51,
 		30,
 		15,
 		21,
@@ -4628,6 +4642,7 @@ var textsKo = i18n.NewTexts(""+
 	"갤러리에서 의상의 ♡를 탭하면 여기에 모여요."+
 	"아직 추가한 옷이 없어요"+
 	"옷을 바닥에 펼치거나 옷걸이에 걸어 찍은 사진을 추가하세요."+
+	"이 파일은 이미지가 아닙니다."+
 	"같은 얼굴, 다른 의상"+
 	"사용한 얼굴"+
 	"사용한 포즈"+
@@ -4821,6 +4836,7 @@ var textsKo = i18n.NewTexts(""+
 		63,
 		33,
 		83,
+		40,
 		28,
 		16,
 		16,
@@ -5017,6 +5033,7 @@ var textsPtBR = i18n.NewTexts(""+
 	"Toque em ♡ numa roupa da galeria para guardá-la aqui."+
 	"Nenhuma roupa adicionada ainda"+
 	"Adicione uma foto de roupas estendidas ou num cabide."+
+	"Esse arquivo não é uma imagem."+
 	"Mesmo rosto, outra roupa"+
 	"Rosto usado"+
 	"Pose usada"+
@@ -5210,6 +5227,7 @@ var textsPtBR = i18n.NewTexts(""+
 		56,
 		30,
 		53,
+		32,
 		24,
 		11,
 		10,
@@ -5406,6 +5424,7 @@ var textsRu = i18n.NewTexts(""+
 	"Нажмите ♡ на наряде в галерее, чтобы сохранить его здесь."+
 	"Одежда ещё не добавлена"+
 	"Добавьте фото одежды, разложенной на ровной поверхности или на вешалке."+
+	"Этот файл не изображение."+
 	"То же лицо, другой наряд"+
 	"Использованное лицо"+
 	"Использованная поза"+
@@ -5599,6 +5618,7 @@ var textsRu = i18n.NewTexts(""+
 		104,
 		43,
 		131,
+		46,
 		43,
 		37,
 		37,
@@ -5795,6 +5815,7 @@ var textsZhHans = i18n.NewTexts(""+
 	"去「服装库」点 ♡ 收藏喜欢的搭配"+
 	"还没上传过衣服"+
 	"点「上传衣服」，拍一张平铺或挂拍的照片即可"+
+	"那个文件不是图片。"+
 	"同一张脸，一键换搭配"+
 	"使用的人脸"+
 	"使用的姿势"+
@@ -5988,6 +6009,7 @@ var textsZhHans = i18n.NewTexts(""+
 		47,
 		21,
 		63,
+		27,
 		30,
 		15,
 		15,
@@ -6184,6 +6206,7 @@ var textsZhHant = i18n.NewTexts(""+
 	"到「服裝庫」點 ♡ 收藏喜歡的搭配"+
 	"還沒上傳過衣服"+
 	"點「上傳衣服」，拍一張平放或掛著的衣服照片即可"+
+	"這個檔案不是圖片。"+
 	"同一張臉，一鍵換搭配"+
 	"使用的臉孔"+
 	"使用的姿勢"+
@@ -6377,6 +6400,7 @@ var textsZhHant = i18n.NewTexts(""+
 		47,
 		21,
 		69,
+		27,
 		30,
 		15,
 		15,
@@ -7943,6 +7967,13 @@ func NoUploadsBody(cx *core.Scope) string { return For(cx).NoUploadsBody() }
 
 // NoUploadsBody is the package's NoUploadsBody in the language of msgs.
 func (msgs Messages) NoUploadsBody() string { return msgs.text(textNoUploadsBody) }
+
+// NotAnImage says "That file is not a picture."
+// in the language the app shows under cx.
+func NotAnImage(cx *core.Scope) string { return For(cx).NotAnImage() }
+
+// NotAnImage is the package's NotAnImage in the language of msgs.
+func (msgs Messages) NotAnImage() string { return msgs.text(textNotAnImage) }
 
 // SwapOutfit says "Same face, another outfit"
 // in the language the app shows under cx.

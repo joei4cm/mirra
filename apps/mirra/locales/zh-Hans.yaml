@@ -111,6 +111,7 @@ noFavoritesTitle: 还没有收藏
 noFavoritesBody: 去「服装库」点 ♡ 收藏喜欢的搭配
 noUploadsTitle: 还没上传过衣服
 noUploadsBody: 点「上传衣服」，拍一张平铺或挂拍的照片即可
+notAnImage: 那个文件不是图片。
 swapOutfit: 同一张脸，一键换搭配
 swapTo: 换成「{name}」
 usedFace: 使用的人脸
